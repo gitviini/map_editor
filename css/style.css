@@ -90,7 +90,7 @@ hr {
   opacity: 0;
 }
 
-.options, .container_models, .container_rooms {
+.options {
   position: fixed;
   display: flex;
   flex-flow: column;
@@ -105,7 +105,7 @@ hr {
   box-sizing: border-box;
   z-index: 4;
 }
-.options .option, .container_models .option, .container_rooms .option {
+.options .option {
   display: flex;
   flex-flow: row;
   justify-content: flex-end;
@@ -115,27 +115,48 @@ hr {
   padding: 5px;
   gap: 5px;
 }
-.options .option *, .container_models .option *, .container_rooms .option * {
+.options .option * {
   color: #fff;
 }
-.options .option i, .container_models .option i, .container_rooms .option i {
+.options .option i {
   cursor: pointer;
 }
-.options .option i.click, .container_models .option i.click, .container_rooms .option i.click {
+.options .option i.click {
   color: rgba(255, 255, 255, 0.3333333333);
 }
 
-.container_models {
+.container {
+  position: absolute;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 5px;
   left: 0;
-  right: initial;
-  color: #fff;
-  overflow: hidden auto;
+  top: 60px;
+  box-sizing: border-box;
+  height: calc(100% - 60px);
+  padding: 10px;
+  width: 150px;
 }
 
-.container_rooms {
-  right: 0;
-  color: #fff;
+.container_models, .container_rooms {
+  max-height: 90%;
   overflow: hidden auto;
+  color: #fff;
+  width: 100%;
+}
+
+summary {
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.2666666667);
+  border-radius: 10px;
+  width: 100%;
+  cursor: pointer;
+}
+
+[open] summary {
+  border-radius: 10px 0 0 10px;
 }
 
 .models, .rooms {

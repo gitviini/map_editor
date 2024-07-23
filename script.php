@@ -105,6 +105,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $floor = $_POST['floor'];
             insert_room($con,array($name,$map,$commmands,$floor));
             break;
+        case 'get_rooms':
+            get_rooms($con);
+            break;
         default:
             break;
     }

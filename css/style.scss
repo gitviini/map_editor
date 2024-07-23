@@ -94,7 +94,7 @@ hr {
     opacity: 0;
 }
 
-.options, .container_models, .container_rooms{
+.options{
     position: fixed;
     display: flex;
     flex-flow: column;
@@ -133,17 +133,40 @@ hr {
     }
 }
 
-.container_models{
+.container{
+    position: absolute;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 5px;
     left: 0;
-    right: initial;
-    color: #fff;
-    overflow: hidden auto;
+    top: 60px;
+    box-sizing: border-box;
+    height: calc(100% - 60px);
+    padding: 10px;
+    width: 150px;
 }
 
-.container_rooms{
-    right: 0;
-    color: #fff;
+.container_models,.container_rooms{
+    max-height: 90%;
     overflow: hidden auto;
+    color: #fff;
+    width: 100%;
+}
+
+summary{
+    padding: 10px;
+    background-color: #fff4;
+    border-radius: 10px;
+    width: 100%;
+    cursor: pointer;
+}
+
+[open]{
+    summary{
+        border-radius: 10px 0 0 10px;
+    }
 }
 
 .models, .rooms{
