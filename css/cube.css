@@ -1,0 +1,196 @@
+@keyframes rotate {
+  0% {
+    transform: rotate3d(0, 1, 0, 0);
+  }
+  50% {
+    transform: rotate3d(0, 1, 0, 360deg);
+  }
+  100% {
+    transform: rotate3d(0, 0, 0, 0);
+  }
+}
+* {
+  --face-size: 50px;
+  --face-distance: 25px;
+  transform-style: preserve-3d;
+}
+
+.model {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  pointer-events: all;
+  width: 100%;
+  height: 60px;
+  animation: rotate 10s linear;
+  animation-iteration-count: infinite;
+  cursor: pointer;
+}
+.model:hover {
+  animation: none;
+  background-color: rgba(255, 255, 255, 0.0666666667);
+}
+.model .cube {
+  pointer-events: all;
+  position: absolute;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: var(--width-cube);
+  height: var(--width-cube);
+  cursor: pointer;
+  transform: translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+}
+.model .cube .face {
+  position: absolute;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: var(--width-cube);
+  height: var(--width-cube);
+  color: #fff;
+  box-sizing: border-box;
+  background-color: #635985;
+  border: none;
+}
+.model .cube .front {
+  transform: translateZ(calc(var(--width-cube) / 2));
+}
+.model .cube .right {
+  transform: rotateY(90deg) translateZ(calc(var(--width-cube) / 2));
+}
+.model .cube .back {
+  filter: brightness(70%);
+  transform: rotateY(180deg) translateZ(calc(var(--width-cube) / 2));
+}
+.model .cube .left {
+  filter: brightness(70%);
+  transform: rotateY(-90deg) translateZ(calc(var(--width-cube) / 2));
+}
+.model .cube .top {
+  transform: rotateX(90deg) translateZ(calc(var(--width-cube) / 2));
+}
+.model .cube .bottom {
+  filter: brightness(50%);
+  direction: rtl;
+  transform: rotateY(180deg) rotateX(90deg) translateZ(calc(-1 * var(--width-cube) / 2));
+}
+
+.container-cube {
+  display: flex;
+  width: var(--face-size);
+  height: 100%;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  transform: rotate3d(1, 0, 0, -90deg);
+}
+.container-cube .cube {
+  position: absolute;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: var(--width-cube);
+  height: var(--width-cube);
+  transform: rotate3d(1, 0, 0, 90deg);
+}
+.container-cube .cube .face {
+  position: absolute;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: var(--face-size);
+  height: var(--face-size);
+  color: #fff;
+  border: 2px solid rgba(0, 0, 0, 0.0666666667);
+  opacity: 1;
+}
+.container-cube .cube * {
+  box-sizing: border-box;
+  background-color: #fff;
+}
+.container-cube .cube .right {
+  transform: rotateY(90deg);
+}
+.container-cube .cube .back {
+  filter: brightness(70%);
+  transform: rotateY(180deg);
+}
+.container-cube .cube .left {
+  filter: brightness(70%);
+  transform: rotateY(-90deg);
+}
+.container-cube .cube .top {
+  transform: rotateX(90deg);
+}
+.container-cube .cube .bottom {
+  filter: brightness(50%);
+  direction: rtl;
+  transform: rotateY(180deg) rotateX(90deg);
+}
+
+.cube {
+  pointer-events: all;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: var(--width-cube);
+  height: var(--width-cube);
+  transform: rotate3d(1, 0, 0, -90deg);
+}
+.cube * {
+  box-sizing: border-box;
+}
+.cube .face {
+  position: absolute;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: var(--face-size);
+  height: var(--face-size);
+  color: #fff;
+  border: 2px solid rgba(0, 0, 0, 0.0666666667);
+  opacity: 1;
+  background-color: #ddd;
+}
+
+.front {
+  transform: translateZ(var(--face-distance));
+}
+
+.right {
+  transform: rotateY(90deg) translateZ(var(--face-distance));
+}
+
+.back {
+  transform: rotateY(180deg) translateZ(var(--face-distance));
+}
+
+.left {
+  transform: rotateY(-90deg) translateZ(var(--face-distance));
+}
+
+.top {
+  transform: rotateX(90deg) translateZ(var(--face-distance));
+}
+
+.bottom {
+  transform: rotateY(180deg) rotateX(90deg) translateZ(calc(-1 * var(--face-distance)));
+}
+
+.cube.show .face {
+  opacity: 0.08;
+}
+
+.transparent .face {
+  border: 2px solid rgba(255, 255, 255, 0.2666666667);
+  opacity: 0.1;
+  background-color: transparent;
+}/*# sourceMappingURL=cube.css.map */
