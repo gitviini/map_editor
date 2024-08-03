@@ -45,6 +45,8 @@ async function insert_room(name='',map=[],commands=[],floor=0){
 
     form.append('mode','insert_room')
     form.append('name',name)
+    console.log(map)
+    console.log(map_to_string(map))
     form.append('map',map_to_string(map))
     form.append('commands',commands)
     form.append('floor',floor)
@@ -70,4 +72,17 @@ function map_to_string(map=[]){
     }
 
     return map_string
+}
+
+function string_to_map(string_map=''){
+    string_map = string_map.split(']')
+
+    for(let n = 0; n < string_map.length; n++){
+        string_map[n] = string_map[n].split(';')
+        for(let l = 0; l < string_map[n].length; l++){
+            string_map[n][l] = string_map[n][l].split(',')
+        }
+    }
+
+    return string_map
 }

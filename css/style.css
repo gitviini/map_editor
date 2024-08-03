@@ -38,8 +38,8 @@ body {
   flex-flow: column;
   justify-content: center;
   align-content: center;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
+  grid-auto-columns: 50px;
+  grid-auto-rows: 50px;
   padding: 50px;
   border: 2px solid rgba(255, 255, 255, 0.6666666667);
 }
@@ -69,6 +69,15 @@ input {
   border-radius: 10px;
   border: none;
   margin: 5px;
+}
+
+.room {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #fff;
+  color: #234;
+  width: 100%;
+  cursor: pointer;
 }
 
 .add {
@@ -160,10 +169,12 @@ summary {
 }
 
 .models, .rooms {
+  padding: 5px 0 0 0;
   display: flex;
   flex-flow: column;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
+  gap: 5px;
 }
 .models .container_models, .rooms .container_models {
   min-height: 60px;
