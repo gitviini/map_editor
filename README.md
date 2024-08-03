@@ -2,7 +2,7 @@
 
 by: [@v.ii.n.i](https://instagram.com/v.ii.n.i)
 
-	Projeto feito para complementar a criação de design levels em conjunto com o [3d editor](https://github.com/gitviini/3d_editor).
+Projeto feito para complementar a criação de design levels em conjunto com o [3d editor](https://github.com/gitviini/3d_editor).
 
 <img width='100%' src='./image.png'>
 
