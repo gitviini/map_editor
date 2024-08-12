@@ -19,3 +19,15 @@ Projeto feito para complementar a criação de design levels em conjunto com o [
 
 ¹: Visualização do mapa (centro da tela);
 ²: É utilizado como bloco padrão para novas camadas adicionadas.
+
+#### Banco de dados (MariaDB)
+COMANDOS:
+* create database game;
+* use game;
+* create table rooms(
+	name VARCHAR(20) PRIMARY KEY NOT NULL,
+    map TEXT NOT NULL,
+	commands TEXT,
+    floor VARCHAR(20) NOT NULL
+);
+* pronto 😎
