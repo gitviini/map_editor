@@ -85,6 +85,34 @@ function get_models(mysqli $con)
     }
 }
 
+function delete_room(mysqli $con, array $info)
+{
+    try {
+        $name = $info[0];
+
+        $exists = 0;
+
+        $names = $con->query('SELECT name FROM rooms')->fetch_all();
+
+        foreach ($names as $name_) {
+            if ($name == $name_[0]) {
+                $exists = 1;
+            }
+        }
+        $sql = '';
+
+        if ($exists) {
+            $sql = "DELETE FROM rooms WHERE name = '$name'";
+            $res = $con->query($sql);
+            echo json_encode(array('res' => $res));
+        }else{
+            $res = '';
+            echo json_encode(array('res' => $res));
+        }
+    } catch (Exception $err) {
+    }
+}
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $mode = $_POST['mode'];
@@ -103,10 +131,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $map = $_POST['map'];
             $commmands = $_POST['commands'];
             $floor = $_POST['floor'];
-            insert_room($con,array($name,$map,$commmands,$floor));
+            insert_room($con, array($name, $map, $commmands, $floor));
             break;
         case 'get_rooms':
             get_rooms($con);
+            break;
+        case 'delete_room':
+            $name = $_POST['name'];
+            delete_room($con, array($name));
             break;
         default:
             break;

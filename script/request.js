@@ -11,7 +11,6 @@ async function send_model(name='',content=''){
     }).then(e=>{
         e.json().then(
             res=>{
-                console.log(res)
                 res['res'] == true ? alert(`Modelo ${name} salvo com sucesso`) : alert(`Erro ao salvar modelo ${name}`)
             }
         )
@@ -45,11 +44,21 @@ async function insert_room(name='',map=[],commands=[],floor=0){
 
     form.append('mode','insert_room')
     form.append('name',name)
-    console.log(map)
-    console.log(map_to_string(map))
     form.append('map',map_to_string(map))
     form.append('commands',commands)
     form.append('floor',floor)
+
+    return fetch('/script.php',{
+        method:'POST',
+        body:form,
+    })
+}
+
+async function delete_room(name=''){
+    let form = new FormData()
+
+    form.append('mode','delete_room')
+    form.append('name',name)
 
     return fetch('/script.php',{
         method:'POST',
