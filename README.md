@@ -9,17 +9,16 @@ Projeto feito para complementar a criação de design levels em conjunto com o [
 ### Features
 #### PREVIEW CREATE¹
 * Ao clicar num bloco ele será trocado pelo modelo antes selecionado;
+#### ACTIONS
+* Salvar room e selecionar o piso³;
+* Deletar room;
 #### OPTIONS
 * Ícone de trash/lixo: deleta a camada;
 * Ícone de magic_eye/olho mágico: (des)oculta a camada;
 #### MODELOS
 * Ao selecionar um modelo ele é definido como padrão²;
-#### ROOMS
+#### SALAS
 * Coloca a sala selecionada no Preview Create;
-
-¹: Visualização do mapa (centro da tela);
-²: É utilizado como bloco padrão para novas camadas adicionadas.
-
 #### Banco de dados (MariaDB)
 COMANDOS:
 * create database game;
@@ -31,3 +30,7 @@ COMANDOS:
     floor VARCHAR(20) NOT NULL
 );
 * pronto 😎
+
+¹: Visualização do mapa (centro da tela);
+²: É utilizado como bloco padrão para novas camadas adicionadas;
+³: Camada onde o personagem começará o jogo.
