@@ -222,7 +222,6 @@ function gadgets(display = Element, index = 0) {
     //quando onclick vai ocultar o layer
     eye.onclick = () => {
         eye.classList.toggle('click')
-        display.style.opacity == 0 ? display.style.opacity = '1' : display.style.opacity = '0'
         display.classList.toggle('click')
         //display.style.pointerEvents != 'none' ? display.style.pointerEvents = 'none' : display.style.pointerEvents = 'all'
     }

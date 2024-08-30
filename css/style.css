@@ -65,12 +65,12 @@ body {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   transform: rotateX(90deg);
-  opacity: 1;
 }
 .layer * {
   pointer-events: all;
 }
 .layer.click * {
+  display: none;
   pointer-events: none;
 }
 
@@ -148,6 +148,7 @@ body {
 .container_models button,
 .container_rooms button {
   width: 100%;
+  margin: 10px 0 0 0;
 }
 
 .models,
@@ -157,7 +158,8 @@ body {
   flex-flow: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 5px;
+  margin: 5px 0 0 0;
+  gap: 10px;
 }
 .models .container_models,
 .rooms .container_models {
@@ -253,6 +255,24 @@ summary {
   height: 0;
 }
 
+.move_buttons {
+  scale: 0;
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 5px;
+  z-index: 5;
+}
+.move_buttons .arrow {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
 @media screen and (min-width: 670px) {
   button:hover,
   label:hover,
@@ -272,6 +292,9 @@ summary {
   }
 }
 @media screen and (max-width: 670px) {
+  .move_buttons {
+    scale: 1;
+  }
   span {
     display: none;
   }
