@@ -1,97 +1,18 @@
-async function send_model(name='',content=''){
-    let form = new FormData()
-
-    form.append('mode','insert_model')
-    form.append('name',name)
-    form.append('content',content)
-
-    fetch('/script.php',{
-        method:'POST',
-        body:form,
-    }).then(e=>{
-        e.json().then(
-            res=>{
-                res['res'] == true ? alert(`Modelo ${name} salvo com sucesso`) : alert(`Erro ao salvar modelo ${name}`)
-            }
-        )
-    })
-}
-
-async function get_models(){
-    let form = new FormData()
-
-    form.append('mode','get_models')
-
-    return fetch('/script.php',{
-        method:'POST',
-        body:form,
-    })
-}
-
-async function get_rooms(){
-    let form = new FormData()
-
-    form.append('mode','get_rooms')
-
-    return fetch('/script.php',{
-        method:'POST',
-        body:form,
-    })
-}
-
-async function insert_room(name='',map=[],commands=[],floor=0){
-    let form = new FormData()
-
-    form.append('mode','insert_room')
-    form.append('name',name)
-    form.append('map',map_to_string(map))
-    form.append('commands',commands)
-    form.append('floor',floor)
-
-    return fetch('/script.php',{
-        method:'POST',
-        body:form,
-    })
-}
-
-async function delete_room(name=''){
-    let form = new FormData()
-
-    form.append('mode','delete_room')
-    form.append('name',name)
-
-    return fetch('/script.php',{
-        method:'POST',
-        body:form,
-    })
-}
-
-function map_to_string(map=[]){
-    let map_string = ''
-    for(let n = 0; n < map.length; n++){
-        for(let l = 0; l < map[n].length; l++){
-            map_string += map[n][l].toString()
-            if(l != (map[n][l].length - 1)){
-                map_string += ';'
-            }
-        }
-        if(n != (map.length - 1)){
-            map_string += ']'
-        }
-    }
-
-    return map_string
-}
-
-function string_to_map(string_map=''){
-    string_map = string_map.split(']')
-
-    for(let n = 0; n < string_map.length; n++){
-        string_map[n] = string_map[n].split(';')
-        for(let l = 0; l < string_map[n].length; l++){
-            string_map[n][l] = string_map[n][l].split(',')
-        }
-    }
-
-    return string_map
-}
+//generate
+const create = document.querySelector('.create')
+const options = document.querySelector('.options')
+const models = document.querySelector('.models')
+const rooms = document.querySelector('.rooms')
+const container_models = document.querySelector('.container_models')
+const container_rooms = document.querySelector('.container_rooms')
+const model_faces = '<div class="face front"></div><div class="face right"></div><div class="face left"></div><div class="face bottom"></div><div class="face back"></div><div class="face top"></div>'
+const transparent = '<div class="cube" width="50" height="50" length="50" x="0" y="0" z="0" rotatex="0" rotatey="0" rotatez="0" color="transparent" filter="drop-shadow(0 0 10px #fff)" style="min-width: 50px; min-height: 50px;"><div class="face front" style="width: 50px; transform: translateZ(25px); height: 50px; background: transparent;"></div><div class="face right" style="height: 50px; transform: rotateY(90deg) translateZ(25px); width: 50px; background: transparent;"></div><div class="face left" style="height: 50px; transform: rotateY(-90deg) translateZ(25px); width: 50px; background: transparent;"></div><div class="face bottom" style="width: 50px; height: 50px; transform: rotateY(180deg) rotateX(90deg) translateZ(-25px); background: transparent;"></div><div class="face back" style="width: 50px; transform: rotateY(180deg) translateZ(25px); height: 50px; background: transparent;"></div><div class="face top" style="width: 50px; height: 50px; transform: rotateX(90deg) translateZ(25px); background: transparent;"></div></div>'
+const models_list = {}
+//motion
+const display = document.querySelector('.create')
+//actions
+const titule = document.querySelector('#titule')
+const save = document.querySelector('#save')
+const del = document.querySelector('#delete')
+const change_models = document.querySelector('.change_models')
+const change_rooms = document.querySelector('.change_rooms')

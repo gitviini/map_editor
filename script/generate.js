@@ -1,10 +1,3 @@
-const create = document.querySelector('.create')
-const options = document.querySelector('.options')
-const models = document.querySelector('.models')
-const rooms = document.querySelector('.rooms')
-const model_faces = '<div class="face front"></div><div class="face right"></div><div class="face left"></div><div class="face bottom"></div><div class="face back"></div><div class="face top"></div>'
-const transparent = '<div class="cube" width="50" height="50" length="50" x="0" y="0" z="0" rotatex="0" rotatey="0" rotatez="0" color="transparent" filter="drop-shadow(0 0 10px #fff)" style="min-width: 50px; min-height: 50px;"><div class="face front" style="width: 50px; transform: translateZ(25px); height: 50px; background: transparent;"></div><div class="face right" style="height: 50px; transform: rotateY(90deg) translateZ(25px); width: 50px; background: transparent;"></div><div class="face left" style="height: 50px; transform: rotateY(-90deg) translateZ(25px); width: 50px; background: transparent;"></div><div class="face bottom" style="width: 50px; height: 50px; transform: rotateY(180deg) rotateX(90deg) translateZ(-25px); background: transparent;"></div><div class="face back" style="width: 50px; transform: rotateY(180deg) translateZ(25px); height: 50px; background: transparent;"></div><div class="face top" style="width: 50px; height: 50px; transform: rotateX(90deg) translateZ(25px); background: transparent;"></div></div>'
-const models_list = {}
 models_list['transparent'] = transparent
 
 let input_size = document.querySelector('.size')
@@ -14,6 +7,13 @@ let map = []
 let cube_model = imports_model('transparent', transparent, 'transparent')
 
 form.onsubmit = (e) => e.preventDefault()
+
+function error_imports(msg='',container=Element){
+    let err_msg = document.createElement('p')
+    err_msg.innerHTML = msg
+    err_msg.setAttribute('class','alert danger')
+    container.appendChild(err_msg)
+}
 
 function imports_model(name = '', model = '', class_model = '') {
     let container_cube = document.createElement('div')
@@ -29,7 +29,7 @@ function imports_model(name = '', model = '', class_model = '') {
 
 function imports_room(name = '', map_room = []) {
     let room = document.createElement('p')
-    room.setAttribute('class', 'room')
+    room.setAttribute('class', 'button')
     room.innerHTML = name
     room.onclick = () => {
         console.log(map_room)
@@ -202,10 +202,10 @@ function gadgets(display = Element, index = 0) {
     //criando opções que manipulam o novo layer
     let option = document.createElement('div')
     option.setAttribute('class', 'option')
-    option.innerHTML = `<p>${index + 1}</p><hr width="100%">`
+    option.innerHTML = `<p>${index + 1}</p>`
     //adicionando lixo as opções
     let trash = document.createElement('i')
-    trash.setAttribute('class', 'bi bi-trash')
+    trash.setAttribute('class', 'bi bi-trash button')
     //quando onclick vai deletar a layer e a option
     trash.onclick = () => {
         let pos = (Number(option.children[0].innerHTML) - 1)
@@ -218,7 +218,7 @@ function gadgets(display = Element, index = 0) {
 
     //adicionando eye as opções
     let eye = document.createElement('i')
-    eye.setAttribute('class', 'bi bi-eye')
+    eye.setAttribute('class', 'bi bi-eye button')
     //quando onclick vai ocultar o layer
     eye.onclick = () => {
         eye.classList.toggle('click')

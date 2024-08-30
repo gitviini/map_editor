@@ -1,7 +1,3 @@
-const titule = document.querySelector('#titule')
-const save = document.querySelector('#save')
-const del = document.querySelector('#delete')
-
 titule.onsubmit = (e) => {
     e.preventDefault()
 }
@@ -19,4 +15,12 @@ del.onclick = () => {
     if (confirm(`Deseja deletar ${name}`)) {
         delete_room(name)
     }
+}
+
+container_models.onclick = () =>{
+    container_rooms.removeAttribute('open')
+}
+
+container_rooms.onclick = () =>{
+    container_models.removeAttribute('open')
 }

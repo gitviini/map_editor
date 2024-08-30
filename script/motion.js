@@ -1,5 +1,3 @@
-const display = document.querySelector('.create')
-
 let degX = 15
 let degY = 15
 
