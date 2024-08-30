@@ -132,7 +132,6 @@ function change(mode = 1) {
             cube.style.opacity = '1'
             cube.style.cursor = 'pointer'
             cube.setAttribute('class', 'container-cube cube')
-            cube.setAttribute('data-index', map.length)
             cube.addEventListener('click', () => {
                 let name = cube_model.getAttribute('name')
                 let n = Number(display_.getAttribute('data-index'))
@@ -189,10 +188,9 @@ function change_room() {
                 cube.style.opacity = '1'
                 cube.style.cursor = 'pointer'
                 cube.setAttribute('class', 'container-cube cube')
-                cube.setAttribute('data-index', l)
                 cube.addEventListener('click', () => {
                     let name = cube_model.getAttribute('name')
-                    let n = Number(display_.getAttribute('data-index'))
+                    let l = Number(display_.getAttribute('data-index'))
                     cube.innerHTML = cube_model.innerHTML
                     map[l][c][i] = cube_model.getAttribute('name')
                     console.log(`${name}:${l}|${c}|${i}`)
