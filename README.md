@@ -21,6 +21,8 @@ Projeto feito para complementar a criação de design levels em conjunto com o [
 * Ao selecionar um modelo ele é definido como padrão²;
 #### SALAS
 * Coloca a sala selecionada no Preview Create;
+#### BOTÕES (modo mobile)
+* D-pad para movimentar o Preview create¹.
 #### Banco de dados (MariaDB)
 COMANDOS:
 * create database game;
