@@ -7,6 +7,8 @@ Projeto feito para complementar a criação de design levels em conjunto com o [
 <img width='100%' src='./image.png'>
 
 ### Features
+#### ADD
+* Permite selecionar criar novas layers e seus tamanhos, sendo adicionada acima ou abaixo das camadas antes feitas.
 #### PREVIEW CREATE¹
 * Ao clicar num bloco ele será trocado pelo modelo antes selecionado;
 #### ACTIONS
