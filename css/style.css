@@ -87,6 +87,23 @@ body {
   background-color: rgba(255, 255, 255, 0.1333333333);
   gap: 5px;
 }
+.add .add_layer.show {
+  display: none;
+}
+.add .add_button {
+  width: 100%;
+  display: none;
+}
+.add .add_button.click {
+  display: block;
+}
+.add .add_button .button {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-content: center;
+  height: 5px;
+}
 
 .options {
   position: fixed;
@@ -145,10 +162,16 @@ body {
   color: #fff;
   width: 100%;
 }
+.container_models.click .change_models, .container_models.click .change_rooms,
+.container_rooms.click .change_models,
+.container_rooms.click .change_rooms {
+  scale: 0;
+}
 .container_models button,
 .container_rooms button {
   width: 100%;
   margin: 10px 0 0 0;
+  scale: 1;
 }
 
 .models,

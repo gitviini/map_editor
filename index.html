@@ -16,6 +16,24 @@
     <script src="/script/actions.js" defer></script>
 </head>
 <body>
+    <!-- Cabeçalho superior -->
+    <div class="add">
+        <form action=""> 
+            <input type="number" class="size" placeholder="tamanho da sala (a * a)">
+            <button class="add_layer" >adicionar layer</button>
+            <div class="add_button">
+                <button class="button"><i class="bi bi-caret-up-fill"></i></button>
+                <button class="button"><i class="bi bi-caret-down-fill"></i></button>
+            </div>
+        </form>
+        <form action="" id="titule">
+            <input type="text" required placeholder="Nome da sala">
+            <button id="save"><i class="bi bi-floppy"></i> <span>salvar</span></button>
+            <button id="delete"><i class="bi bi-trash"></i> <span>delete</span></button>
+        </form>
+    </div>
+
+    <!-- Container lateral esquerda (models and rooms) -->
     <div class="container">
         <details class="container_models">
             <summary>Modelos</summary>
@@ -30,21 +48,16 @@
             </div>
         </details>
     </div>
-    <div class="add">    
-        <form action="">
-            <input type="number" placeholder="tamanho da sala (a * a)" class="size">
-            <button onclick="change()">adicionar layer</button>
-        </form>
-        <form action="" id="titule">
-            <input type="text" required placeholder="Nome da sala">
-            <button id="save"><i class="bi bi-floppy"></i> <span>salvar</span></button>
-            <button id="delete"><i class="bi bi-trash"></i> <span>delete</span></button>
-        </form>
-    </div>
+
+    <!-- Barra lateral direita (configurações das camadas)-->
     <div class="options">
     </div>
+
+    <!-- Display central de criação -->
     <div class="create">
     </div>
+
+    <!-- (Mobile) Butões para movimento -->
     <div class="move_buttons">
         <div></div>
         <button class="arrow" id="up"><i class="bi bi-caret-up-fill"></i></button>

@@ -90,6 +90,30 @@ body {
     padding: 10px;
     background-color: #fff2;
     gap: 5px;
+
+    .add_layer{
+        &.show{
+            display: none;
+        }
+    }
+
+    .add_button{
+        width: 100%;
+        display: none;
+
+        &.click{
+            display: block;
+        }
+
+        .button{
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-content: center;
+            height: 5px;
+        }
+    }
+
 }
 
 .options {
@@ -152,9 +176,17 @@ body {
     overflow: hidden auto;
     color: #fff;
     width: 100%;
+    
+    &.click{
+        .change_models,.change_rooms{
+            scale: 0;
+        }
+    }
+
     button{
         width: 100%;
         margin: 10px 0 0 0;
+        scale: 1;
     }
 }
 
