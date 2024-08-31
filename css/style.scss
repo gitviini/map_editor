@@ -24,6 +24,12 @@ html {
 }
 
 body {
+    --up: flex;
+    --bottom: flex;
+    --right: flex;
+    --left: flex;
+    --front: flex;
+    --back: flex;
     --width-display: 100px;
     --color: #000;
     --yellow: #FFDA76;
@@ -32,7 +38,7 @@ body {
     --face-border: #0001;
     --scroll: #234;
     --danger: #DD5746;
-    --bg: #fff;
+    --bg: #f4f4f4;
     display: flex;
     flex-flow: column;
     justify-content: center;
@@ -52,7 +58,7 @@ body {
     grid-auto-columns: 50px;
     grid-auto-rows: 50px;
     padding: 50px;
-    border: 2px solid var(--border);
+    transition: 0s;
 }
 
 .layer {
@@ -174,7 +180,7 @@ body {
 .container_rooms {
     max-height: 90%;
     overflow: hidden auto;
-    color: #fff;
+    color: var(--bg);
     width: 100%;
     
     &.click{
@@ -202,24 +208,6 @@ body {
 
     .container_models {
         min-height: 60px;
-    }
-}
-
-.move_buttons {
-    scale: 0;
-    position: fixed;
-    bottom: 130px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 5px;
-    z-index: 5;
-
-    .arrow {
-        display: flex;
-        flex-flow: column;
-        justify-content: center;
-        align-items: center;
     }
 }
 
@@ -252,6 +240,7 @@ label,
 
 input {
     width: 100%;
+    background-color: var(--bg);
 }
 
 button,
@@ -296,8 +285,8 @@ summary {
 .move_buttons{
     scale: 0;
     position: fixed;
-    right: 50px;
-    bottom: 50px;
+    right: 20px;
+    bottom: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -332,19 +321,15 @@ summary {
 }
 
 @media screen and (max-width:670px) {
-
     .move_buttons{
         scale: 1;
+        &.show {
+            scale: 1;
+        }
     }
 
     span {
         display: none;
-    }
-
-    .move_buttons {
-        &.show {
-            scale: 1;
-        }
     }
 
     button,

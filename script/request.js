@@ -12,6 +12,8 @@ const form = document.querySelector('form')
 const input_size = document.querySelector('.size')
 const add_layer = document.querySelector('.add_layer')
 const add_button = document.querySelector('.add_button')
+//orientation
+const orientation_cube = document.querySelector('.orientation')
 //motion
 const display = document.querySelector('.create')
 //actions

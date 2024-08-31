@@ -11,6 +11,8 @@ Projeto feito para complementar a criação de design levels em conjunto com o [
 * Permite selecionar criar novas layers e seus tamanhos, sendo adicionada acima ou abaixo das camadas antes feitas.
 #### PREVIEW CREATE¹
 * Ao clicar num bloco ele será trocado pelo modelo antes selecionado;
+#### ORIENTATION CUBE
+* Cubo de orientação (frente, trás, topo e etc.).
 #### ACTIONS
 * Salvar room e selecionar o piso³;
 * Deletar room;

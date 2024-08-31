@@ -95,11 +95,18 @@
 .container-cube {
     display: flex;
     width: var(--face-size);
-    height: 100%;
+    height: var(--face-size);
     flex-flow: column;
     justify-content: center;
     align-items: center;
     transform: rotate3d(1, 0, 0, -90deg);
+
+    &:hover{
+        pointer-events: all;
+        .cube .face, .back, .left, .bottom{
+            filter: brightness(1.15);
+        }
+    }
 
     .cube {
         position: absolute;
@@ -120,34 +127,41 @@
             width: var(--face-size);
             height: var(--face-size);
             color: #fff;
-            border: 2px solid var(--face-border);
+            margin: 10px;
             opacity: 1;
         }
 
         * {
             box-sizing: border-box;
             background-color: #fff;
+            border: none ;
+            outline: none;
         }
 
         .right {
+            display: var(--right);
             transform: rotateY(90deg);
         }
 
         .back {
+            display: var(--back);
             filter: brightness(70%);
             transform: rotateY(180deg);
         }
 
         .left {
+            display: var(--left);
             filter: brightness(70%);
             transform: rotateY(-90deg);
         }
 
         .top {
+            display: var(--top);
             transform: rotateX(90deg);
         }
 
         .bottom {
+            display: var(--bottom);
             filter: brightness(50%);
             direction: rtl;
             transform: rotateY(180deg) rotateX(90deg);
@@ -179,7 +193,8 @@
         width: var(--face-size);
         height: var(--face-size);
         color: #fff;
-        border: 2px solid var(--face-border);
+        border: none;
+        outline: 1px solid var(--face-border);
         opacity: 1;
         background-color: #ddd;
     }
@@ -215,12 +230,37 @@
     }
 }
 
-.transparent {
+.transparent{
     .cube {
         .face {
             border: 2px solid var(--border);
             opacity: 0.1;
-            background-color: transparent;
+            background-color: var(--bg);
         }
     }
+}
+
+.cube[color="transparent"]{
+    --up: flex;
+    --bottom: flex;
+    --right: flex;
+    --left: flex;
+    --front: flex;
+    --back: flex;
+}
+
+.orientation{
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    .face{
+        color: var(--color);
+        background-color: var(--danger);
+        border: 2px solid var(--color);
+        --face-distance: 25px;
+        --face-size: 50px;
+        font-size: 0.9rem;
+        
+    }
+    transform: rotate3d(0, 0, 0, -90deg);
 }
