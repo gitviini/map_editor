@@ -10,11 +10,14 @@
 
 ::-webkit-scrollbar {
   width: 5px;
-  background-color: #fff;
+  background-color: var(--bg);
+  cursor: pointer;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--scroll);
+  background-color: var(--button-input);
+  border: 2px solid var(--border);
+  border-radius: 0;
 }
 
 body,
@@ -36,7 +39,6 @@ body {
   --button-input: #B4D6CD;
   --border: #000;
   --face-border: #0001;
-  --scroll: #234;
   --danger: #DD5746;
   --bg: #f4f4f4;
   display: flex;
@@ -112,23 +114,20 @@ body {
 }
 
 .options {
-  position: fixed;
   display: flex;
   flex-flow: column;
+  width: 100%;
+  height: calc(100% - 60px);
   justify-content: flex-start;
   align-items: flex-start;
-  right: 0;
-  top: 60px;
-  padding: 10px;
-  height: calc(100% - 60px);
+  margin: 5px 0 0 0;
   gap: 5px;
   overflow: hidden scroll;
-  box-sizing: border-box;
-  z-index: 4;
 }
 .options .option {
   display: grid;
   justify-content: flex-end;
+  width: 100%;
   align-items: center;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
@@ -146,7 +145,7 @@ body {
   background-color: var(--yellow);
 }
 
-.container {
+.container, .container_options {
   position: fixed;
   display: flex;
   flex-flow: column;
@@ -161,9 +160,20 @@ body {
   padding: 10px;
 }
 
+.container_options {
+  left: initial;
+  right: 0;
+  padding: 10px 5px 5px 10px;
+}
+.container_options .option, .container_options .options {
+  width: 100%;
+}
+.container_options summary {
+  width: calc(100% - 5px);
+}
+
 .container_models,
 .container_rooms {
-  max-height: 90%;
   overflow: hidden auto;
   color: var(--bg);
   width: 100%;
