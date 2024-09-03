@@ -1,3 +1,5 @@
+let root = './script.php'
+
 async function send_model(name='',content=''){
     let form = new FormData()
 
@@ -5,7 +7,7 @@ async function send_model(name='',content=''){
     form.append('name',name)
     form.append('content',content)
 
-    fetch('/script.php',{
+    fetch(root,{
         method:'POST',
         body:form,
     }).then(e=>{
@@ -22,7 +24,7 @@ async function get_models(){
 
     form.append('mode','get_models')
 
-    return fetch('/script.php',{
+    return fetch(root,{
         method:'POST',
         body:form,
     })
@@ -33,7 +35,7 @@ async function get_rooms(){
 
     form.append('mode','get_rooms')
 
-    return fetch('/script.php',{
+    return fetch(root,{
         method:'POST',
         body:form,
     })
@@ -48,7 +50,7 @@ async function insert_room(name='',map=[],commands=[],floor=0){
     form.append('commands',commands)
     form.append('floor',floor)
 
-    return fetch('/script.php',{
+    return fetch(root,{
         method:'POST',
         body:form,
     })
@@ -60,7 +62,7 @@ async function delete_room(name=''){
     form.append('mode','delete_room')
     form.append('name',name)
 
-    return fetch('/script.php',{
+    return fetch(root,{
         method:'POST',
         body:form,
     })
